@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://by700h1x2rale"]
+
+[ext_resource type="FontFile" uid="uid://cqp46dwxylff1" path="res://spaceship assets/Audiowide-Regular.ttf" id="1_6autl"]
+[ext_resource type="Script" path="res://Scenes/ui.gd" id="1_h2m0e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_00i5b"]
+
+[node name="UI" type="CanvasLayer" groups=["ui"]]
+script = ExtResource("1_h2m0e")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 113.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 35
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0554103, 0.725258, 0.0462213, 0.999)
+theme_override_colors/font_shadow_color = Color(0.998032, 0.000749107, 0.985754, 1)
+theme_override_colors/font_outline_color = Color(0.569252, 0.000431925, 0.617632, 1)
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("1_6autl")
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxTexture_00i5b")
+text = "0"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+offset_left = 28.0
+offset_top = 1469.0
+offset_right = 3300.0
+offset_bottom = 2493.0
+scale = Vector2(0.113089, 0.12155)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2" groups=["ui"]]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="ScoreTimer" type="Timer" parent="."]
+wait_time = 0.192
+autostart = true
+
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

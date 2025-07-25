@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://xkpd0n4nxn8c"]
+
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_5wi0d"]
+[ext_resource type="Texture2D" uid="uid://dqjakkyimy5wl" path="res://spaceship assets/main spaceship.png" id="1_w28f7"]
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 6
+script = ExtResource("1_5wi0d")
+
+[node name="MainSpaceship" type="Sprite2D" parent="."]
+position = Vector2(547, 432)
+texture = ExtResource("1_w28f7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(548, 10, 580, 60, 605, 123, 626, 217, 637, 251, 654, 283, 733, 374, 731, 336, 743, 311, 761, 291, 772, 289, 785, 294, 808, 328, 812, 355, 812, 400, 803, 442, 911, 544, 916, 616, 911, 621, 809, 580, 812, 599, 802, 602, 723, 600, 719, 591, 736, 546, 654, 509, 649, 523, 637, 534, 624, 538, 598, 534, 613, 585, 607, 589, 592, 590, 596, 605, 591, 611, 554, 612, 547, 621, 540, 613, 497, 609, 500, 593, 481, 586, 498, 532, 472, 539, 457, 538, 445, 526, 438, 507, 356, 544, 374, 593, 370, 600, 348, 603, 289, 604, 279, 597, 283, 578, 184, 618, 178, 614, 180, 548, 291, 442, 284, 395, 286, 331, 298, 306, 312, 291, 324, 289, 335, 293, 349, 310, 362, 332, 364, 370, 439, 285, 468, 224, 481, 149, 501, 89, 541, 14)
+
+[node name="LaserStartPosition" type="Marker2D" parent="."]
+position = Vector2(548, 14)
+
+[node name="laserTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="laserTimer" to="." method="_on_laser_timer_timeout"]

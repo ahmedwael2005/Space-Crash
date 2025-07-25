@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr7meotur2unh"]
+
+[ext_resource type="Texture2D" uid="uid://h8kcch8gfcmm" path="res://Scenes/black background.jpeg" id="1_1vu4p"]
+[ext_resource type="Script" path="res://Scenes/game_over.gd" id="1_wtl8e"]
+[ext_resource type="Texture2D" uid="uid://gcg227b3d11q" path="res://Scenes/game over2.png" id="2_5fojp"]
+[ext_resource type="FontFile" uid="uid://cqp46dwxylff1" path="res://spaceship assets/Audiowide-Regular.ttf" id="3_12a43"]
+
+[node name="Game_Over" type="CanvasLayer"]
+script = ExtResource("1_wtl8e")
+
+[node name="BlackBackground" type="Sprite2D" parent="."]
+position = Vector2(540, 1070)
+scale = Vector2(6.42815, 1.81141)
+texture = ExtResource("1_1vu4p")
+
+[node name="GameOver2" type="Sprite2D" parent="."]
+position = Vector2(1168, 790)
+texture = ExtResource("2_5fojp")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -310.5
+offset_top = 120.0
+offset_right = 310.5
+offset_bottom = 236.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.996078, 0, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_12a43")
+theme_override_font_sizes/font_size = 120
+text = "GAME OVER! :("
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -374.0
+offset_top = -401.0
+offset_right = 605.0
+offset_bottom = -247.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.996078, 0, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_12a43")
+theme_override_font_sizes/font_size = 90
+text = "SCORE: "
+
+[node name="Label3" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -487.0
+offset_top = -181.0
+offset_right = 492.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.996078, 0, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_12a43")
+theme_override_font_sizes/font_size = 90
+text = "PRESS SPACE TO PLAY AGAIN!"

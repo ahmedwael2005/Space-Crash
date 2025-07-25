@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://dh3nmqeaa7yi6"]
+
+[ext_resource type="PackedScene" uid="uid://xkpd0n4nxn8c" path="res://Scenes/player.tscn" id="1_5y2ct"]
+[ext_resource type="Script" path="res://Scenes/world.gd" id="1_oemmn"]
+[ext_resource type="Texture2D" uid="uid://cvvd5b86b0n63" path="res://spaceship assets/pink_space.jpg" id="3_ipbfk"]
+[ext_resource type="PackedScene" uid="uid://by700h1x2rale" path="res://Scenes/ui.tscn" id="5_i5f3a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mg1nc"]
+size = Vector2(268, 1634)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bwhb"]
+size = Vector2(2618, 180)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_oemmn")
+
+[node name="PinkSpace" type="Sprite2D" parent="."]
+position = Vector2(1287, 746)
+scale = Vector2(1.43111, 1.45667)
+texture = ExtResource("3_ipbfk")
+
+[node name="Border" type="Node2D" parent="."]
+visible = false
+visibility_layer = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Border"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D"]
+position = Vector2(2697, 812)
+shape = SubResource("RectangleShape2D_mg1nc")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Border"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D2"]
+position = Vector2(-136, 799)
+shape = SubResource("RectangleShape2D_mg1nc")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Border"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D3"]
+position = Vector2(1291, -89)
+shape = SubResource("RectangleShape2D_4bwhb")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Border"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D4"]
+position = Vector2(1282, 1692)
+shape = SubResource("RectangleShape2D_4bwhb")
+
+[node name="Player" parent="." groups=["ui"] instance=ExtResource("1_5y2ct")]
+position = Vector2(1106, 1375)
+scale = Vector2(0.233, 0.21)
+speed = 900
+
+[node name="MeteorTimer" type="Timer" parent="."]
+wait_time = 0.07
+autostart = true
+
+[node name="Meteors" type="Node2D" parent="."]
+position = Vector2(1280, 0)
+
+[node name="UI" parent="." instance=ExtResource("5_i5f3a")]
+
+[node name="Lasers" type="Node2D" parent="."]
+
+[connection signal="laser" from="Player" to="." method="_on_player_laser"]
+[connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]

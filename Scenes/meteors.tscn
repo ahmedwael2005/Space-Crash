@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b873rnvwsp5f4"]
+
+[ext_resource type="Script" path="res://Scenes/meteors.gd" id="1_teymu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2wmuc"]
+radius = 110.018
+
+[node name="Meteors" type="Area2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_teymu")
+
+[node name="Meteors" type="Sprite2D" parent="."]
+region_enabled = true
+region_rect = Rect2(34.1229, 36.4807, 315.965, 265.662)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-40, -32)
+shape = SubResource("CircleShape2D_2wmuc")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="collision" from="." to="." method="_on_collision"]

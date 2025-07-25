@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://swq4ln0ckwug"]
+
+[ext_resource type="Texture2D" uid="uid://h8kcch8gfcmm" path="res://Scenes/black background.jpeg" id="1_s7cb1"]
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_wf2tj"]
+[ext_resource type="Texture2D" uid="uid://dxxt2veqscw2y" path="res://spaceship assets/assets_task_01k0swc0gkf3bb72qj42hhkzpk_1753215447_img_1.webp" id="2_qylc7"]
+[ext_resource type="FontFile" uid="uid://cqp46dwxylff1" path="res://spaceship assets/Audiowide-Regular.ttf" id="3_7y05g"]
+[ext_resource type="Texture2D" uid="uid://dw0ennn73ixif" path="res://spaceship assets/assets_task_01k11h4qskf5v83jjhb9t43gdc_1753472081_img_1.png" id="4_upvod"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_wf2tj")
+
+[node name="BlackBackground" type="Sprite2D" parent="."]
+position = Vector2(1327, 808)
+scale = Vector2(2.61458, 1)
+texture = ExtResource("1_s7cb1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 662.0
+offset_right = 20.0
+offset_bottom = 702.0
+grow_horizontal = 2
+
+[node name="AssetsTask01k0Swc0Gkf3Bb72Qj42Hhkzpk1753215447Img1" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(47, -146)
+scale = Vector2(0.693359, 0.658203)
+texture = ExtResource("2_qylc7")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -951.0
+offset_top = -600.0
+offset_right = 951.0
+offset_bottom = -484.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label3" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.996078, 0, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_7y05g")
+theme_override_font_sizes/font_size = 80
+text = "PRESS SPACE TO START NEW GAME!"
+
+[node name="AssetsTask01k11h4Qskf5v83Jjhb9t43Gdc1753472081Img1" type="Sprite2D" parent="MarginContainer2"]
+position = Vector2(1784, 245)
+scale = Vector2(0.272461, 0.317383)
+texture = ExtResource("4_upvod")
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 1993.0
+offset_top = 1519.0
+offset_right = 3895.0
+offset_bottom = 1635.0
+theme_override_colors/font_color = Color(0.996078, 0, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_7y05g")
+theme_override_font_sizes/font_size = 50
+text = "ESC TO EXIT GAME"
